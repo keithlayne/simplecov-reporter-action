@@ -29,7 +29,7 @@ async function* commentPages() {
     const response = await octokit.rest.issues.listComments({ ...issue, page, per_page: 100 });
     const comments = response.data.filter((comment) => comment.body?.includes(marker));
     if (comments.length) yield comments;
-    if (response.headers.link?.includes(' rel="next"')) return;
+    if (!response.headers.link?.includes(' rel="next"')) return;
   }
 }
 

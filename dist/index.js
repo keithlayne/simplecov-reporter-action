@@ -15559,7 +15559,7 @@ async function* commentPages() {
         const comments = response.data.filter((comment) => comment.body?.includes(report_1.marker));
         if (comments.length)
             yield comments;
-        if (response.headers.link?.includes(' rel="next"'))
+        if (!response.headers.link?.includes(' rel="next"'))
             return;
     }
 }
