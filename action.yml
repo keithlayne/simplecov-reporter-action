@@ -1,0 +1,19 @@
+name: 'Simplecov Reporter'
+description: 'Show simplecov results in a PR comment'
+author: Keith Layne
+inputs:
+  github-token:
+    description: Github token
+    required: true
+    default: ${{ github.token }}
+  baseline-resultset:
+    description: Path of the JSON file representing baseline coverage statistics
+    required: true
+    default: coverage-baseline/.resultset.json
+  current-resultset:
+    description: Path of the JSON file representing current coverage statistics
+    required: true
+    default: coverage/.resultset.json
+runs:
+  using: 'node16'
+  main: 'dist/index.js'

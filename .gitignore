@@ -5,5 +5,4 @@
 !.yarn/versions
 
 .eslintcache
-dist/
 node_modules/

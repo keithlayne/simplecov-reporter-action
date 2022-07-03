@@ -7,15 +7,17 @@
     "lib": ["es2021"],
     "module": "commonjs",
     "moduleResolution": "node",
+    "noEmit": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
     "noPropertyAccessFromIndexSignature": true,
-    "noUncheckedIndexedAccess": true,
+    // "noUncheckedIndexedAccess": true,
     "outDir": "dist",
     "rootDir": "src",
     "strict": true,
-    "target": "es2021",
-    "types": []
-  }
+    "target": "es2021"
+    // "types": []
+  },
+  "include": ["src"]
 }
