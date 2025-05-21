@@ -24,10 +24,10 @@ export const combineLines = (a: Lines, b: Lines): Lines => {
   return a.map((lhs, index) => {
     const rhs = b[index];
 
-    if (lhs === null && rhs === null) return null;
-    if (lhs !== null && rhs !== null) return lhs + rhs;
+    // Coerce nulls to zeros
+    const sum = Number(lhs) + Number(rhs);
 
-    throw new Error('combineLines: difference in SLOC');
+    return !sum && (lhs == null || rhs == null) ? null : sum;
   });
 };
 
@@ -44,8 +44,8 @@ export const combineBranches = (
   a: Branches | undefined,
   b: Branches | undefined,
 ): Branches | undefined => {
-  if (a === undefined) return b;
-  if (b === undefined) return a;
+  if (a === undefined || Object.keys(a).length === 0) return b;
+  if (b === undefined || Object.keys(b).length === 0) return a;
 
   const aEntries = Object.entries(a);
   const bEntries = Object.entries(b);
